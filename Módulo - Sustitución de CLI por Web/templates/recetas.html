@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Recetas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px auto;
+            max-width: 600px;
+        }
+        li {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #333;
+            margin-top: 0;
+        }
+        p {
+            margin-top: 10px;
+            color: #666;
+        }
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #333;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Listado de Recetas</h1>
+    <ul>
+        {% for receta in recetas %}
+        <li>
+            <h2>{{ receta['nombre'] }}</h2>
+            <p><strong>Ingredientes:</strong> {{ receta['ingredientes'] }}</p>
+            <p><strong>Pasos:</strong> {{ receta['pasos'] }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="/">Volver al Inicio</a>
+</body>
+</html>
