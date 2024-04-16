@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recetario</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        a {
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Recetario</h1>
+    <h2>Agregar Receta</h2>
+    <form action="{{ url_for('agregar_receta') }}" method="POST">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required><br>
+        <label for="ingredientes">Ingredientes:</label><br>
+        <textarea id="ingredientes" name="ingredientes" rows="4" required></textarea><br>
+        <label for="pasos">Pasos:</label><br>
+        <textarea id="pasos" name="pasos" rows="4" required></textarea><br>
+        <input type="submit" value="Agregar Receta">
+    </form>
+
+    <h2>Actualizar Receta</h2>
+    <form action="{{ url_for('actualizar_receta') }}" method="POST">
+        <label for="nombre_actualizar">Nombre de la Receta a Actualizar:</label>
+        <input type="text" id="nombre_actualizar" name="nombre" required><br>
+        <!-- Aquí podrías incluir campos para los datos que deseas actualizar -->
+        <input type="submit" value="Actualizar Receta">
+    </form>
+
+    <h2>Eliminar Receta</h2>
+    <form action="{{ url_for('eliminar_receta') }}" method="POST">
+        <label for="nombre_eliminar">Nombre de la Receta a Eliminar:</label>
+        <input type="text" id="nombre_eliminar" name="nombre" required><br>
+        <input type="submit" value="Eliminar Receta">
+    </form>
+
+    <h2>Ver Recetas</h2>
+    <a href="{{ url_for('ver_recetas') }}">Ver Recetas</a>
+
+    <h2>Buscar Receta</h2>
+    <form action="{{ url_for('buscar_receta') }}" method="POST">
+        <label for="keyword">Buscar por nombre:</label>
+        <input type="text" id="keyword" name="keyword" required><br>
+        <input type="submit" value="Buscar">
+    </form>
+</body>
+</html>
